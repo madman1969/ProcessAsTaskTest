@@ -4,7 +4,7 @@ using Console = Colorful.Console;
 
 namespace ProcessAsTaskTest
 {
-  public class Invoke
+  public class InvokePing
   {
     private readonly Color stdOutColor = Color.GreenYellow;
     private readonly Color defaultColor = Color.Aqua;

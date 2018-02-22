@@ -11,7 +11,7 @@ namespace ProcessAsTaskTest
   {
     static void Main(string[] args)
     {
-      var tmp = new Invoke();
+      var tmp = new InvokePing();
       tmp.Ping("www.bbc.co.uk");
 
       Console.ReadLine();
