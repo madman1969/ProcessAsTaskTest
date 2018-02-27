@@ -53,7 +53,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InvokePing.cs" />
+    <Compile Include="cc65Process.cs" />
+    <Compile Include="PingProcess.cs" />
+    <Compile Include="ProcessBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
