@@ -7,13 +7,24 @@ namespace ProcessAsTaskTest
 {
   internal class cc65Process : ProcessBase
   {
+    const string targetPlatform = "pet";
+
     public override async void InvokeAsync(string sourceFile)
     {
+      // Bail if hooky file ...
       if (string.IsNullOrEmpty(sourceFile) ||
           !File.Exists(sourceFile))
         return;
 
-      var processResults = await ProcessEx.RunAsync(@"c:\cc65\bin\cl65.exe", sourceFile);
+      var args = $"--verbose -t {targetPlatform} {Path.GetFileName(sourceFile)}";
+      var processStartInfo = new ProcessStartInfo
+      {
+        FileName = "cl65.exe",
+        Arguments = args,
+        WorkingDirectory = Path.GetDirectoryName(sourceFile)  
+      };
+
+      var processResults = await ProcessEx.RunAsync(processStartInfo);
 
       Console.WriteLine("Exit code: " + processResults.ExitCode, DefaultColor);
       Console.WriteLine("Run time: " + processResults.RunTime, DefaultColor);
@@ -30,13 +41,6 @@ namespace ProcessAsTaskTest
       {
         Console.WriteLine("Error line: " + error, StdErrColor);
       }
-    }
-
-    private string AddQuotesIfRequired(string path)
-    {
-      return !string.IsNullOrEmpty(path) ?
-        path.Contains(" ") ? "\"" + path + "\"" : path
-        : string.Empty;
     }
   }
 }

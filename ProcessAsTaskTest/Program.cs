@@ -9,7 +9,7 @@ namespace ProcessAsTaskTest
       //var tmp = new PingProcess();
       //tmp.InvokeAsync("www.bbc.co.uk");
 
-      var sourceFile = "C:\\Source Code\\cc65\\hello.c";
+      var sourceFile = @"D:\Commodore Stuff\PET Stuff\csource\Draw\draw.c";
       var tmp = new cc65Process();
       tmp.InvokeAsync(sourceFile);
 
