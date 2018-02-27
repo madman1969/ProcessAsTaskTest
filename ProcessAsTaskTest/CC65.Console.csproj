@@ -7,8 +7,8 @@
     <ProjectGuid>{74E80DFA-B0C6-4C11-B4DB-DCDDA9131D45}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ProcessAsTaskTest</RootNamespace>
-    <AssemblyName>ProcessAsTaskTest</AssemblyName>
+    <RootNamespace>CC65.Console</RootNamespace>
+    <AssemblyName>CC65.Console</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -53,9 +53,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="cc65Process.cs" />
-    <Compile Include="PingProcess.cs" />
-    <Compile Include="ProcessBase.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +63,12 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CC65\CC65.csproj">
+      <Project>{00a12214-a3c3-4a9e-8a8a-df1de8bf3d5d}</Project>
+      <Name>CC65</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
