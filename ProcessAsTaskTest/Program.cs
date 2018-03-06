@@ -1,41 +1,42 @@
-﻿using CC65;
-using Console = Colorful.Console;
-
-namespace CC65Console
+﻿namespace CC65.Console
 {
-  class Program
-  {
-    static void Main(string[] args)
+    // ReSharper disable once ClassNeverInstantiated.Global
+    internal class Program
     {
-      var sourceFile = @"D:\Commodore Stuff\PET Stuff\csource\Draw\draw.c";
-      var process = new CC65Process();
-      var tmp = process.Compile(sourceFile).Result;
+        // ReSharper disable once UnusedParameter.Local
+        private static void Main(string[] args)
+        {
+            const string sourceFile = @"D:\Commodore Stuff\PET Stuff\csource\Draw\draw.c";
+            var process = new Cc65Process();
+            var exitCode = process.Compile(sourceFile).Result;
 
-      // Show exit code & run time ...
-      Console.WriteLine("Exit code: " + process.Results.ExitCode, process.DefaultColor);
-      Console.WriteLine("Run time: " + process.Results.RunTime, process.DefaultColor);
+            // Show exit code & run time ...
+            Colorful.Console.WriteLine($"Exit code: {exitCode}", process.DefaultColor);
+            Colorful.Console.WriteLine($"Run time: {process.Results.RunTime}", process.DefaultColor);
 
-      // 
-      // Dump StdOut ...
-      //
-      Console.WriteLine("{0} lines of standard output", process.Results.StandardOutput.Length, process.StdOutColor);
+            // 
+            // Dump StdOut ...
+            //
+            Colorful.Console.WriteLine($"{process.Results.StandardOutput.Length} lines of standard output",
+                process.StdOutColor);
 
-      foreach (var output in process.Results.StandardOutput)
-      {
-        Console.WriteLine("Output line: " + output, process.StdOutColor);
-      }
+            foreach (var output in process.Results.StandardOutput)
+            {
+                Colorful.Console.WriteLine($"Output line: {output}", process.StdOutColor);
+            }
 
-      //
-      // Dump StdErr ...
-      //
-      Console.WriteLine("{0} lines of standard error", process.Results.StandardError.Length, process.StdErrColor);
+            //
+            // Dump StdErr ...
+            //
+            Colorful.Console.WriteLine($"{process.Results.StandardError.Length} lines of standard error",
+                process.StdErrColor);
 
-      foreach (var error in process.Results.StandardError)
-      {
-        Console.WriteLine("Error line: " + error, process.StdErrColor);
-      }
+            foreach (var error in process.Results.StandardError)
+            {
+                Colorful.Console.WriteLine($"Error line: {error}", process.StdErrColor);
+            }
 
-      Console.ReadLine();
-    }    
-  }
+            Colorful.Console.ReadLine();
+        }
+    }
 }
