@@ -42,6 +42,11 @@ namespace CC65
 
     #region Public Methods
 
+    /// <summary>
+    /// Compiles the supplied source file.
+    /// </summary>
+    /// <param name="sourceFile">C source file path</param>
+    /// <returns>-1 if error encountered, else 0</returns>
     public async Task<int> Compile(string sourceFile)
     {
       // Bail if hooky file ...
