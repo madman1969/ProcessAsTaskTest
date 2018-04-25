@@ -37,7 +37,7 @@ namespace CC65
             }
 
             //
-            // Setup compile process ...
+            // Set up compile process ...
             //
             SetWorkingDirectory(sourceFile);
             SetSourceFile(sourceFile);
